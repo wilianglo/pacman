@@ -8,6 +8,10 @@ let pacmanSize = 1; // Ukuran awal Pac-Man
 let direction = null;
 let score = 0; // Skor awal
 let health = 100; // Health awal
+let atas = document.querySelector(".atas");
+let bawah = document.querySelector(".bawah");
+let kiri = document.querySelector(".kiri");
+let kanan = document.querySelector(".kanan");
 
 let food = {
   x: 100,
@@ -208,7 +212,19 @@ function resetGame() {
     enemies[i].y = Math.random() * (canvas.height - 2 * enemies[i].radius) + enemies[i].radius;
   }
 }
-
+// event listener untuk tombol dilayar
+atas.addEventListener("click", function () {
+  direction = "up";
+});
+bawah.addEventListener("click", function () {
+  direction = "down";
+});
+kanan.addEventListener("click", function () {
+  direction = "right";
+});
+kiri.addEventListener("click", function () {
+  direction = "left";
+});
 // Event listener untuk tombol panah pada keyboard
 document.addEventListener("keydown", function (event) {
   if (event.key === "ArrowLeft") {

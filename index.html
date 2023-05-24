@@ -37,14 +37,75 @@
         width: 50%;
         border-radius: 10px;
       }
+      .navigasi {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        align-items: center;
+        background-color: rgb(47, 73, 98);
+        color: white;
+        padding: 0.8rem;
+        margin: 1rem auto;
+        width: 20%;
+        border-radius: 10px;
+      }
+      .atas,
+      .bawah,
+      .kanan,
+      .kiri {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 1rem;
+        height: 1rem;
+        padding: 1rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+      @media (max-width: 1200px) {
+        .navigasi {
+          width: 25%;
+          gap: 1.8rem;
+        }
+      }
+      @media (max-width: 950px) {
+        .navigasi {
+          width: 28%;
+          gap: 1.7rem;
+        }
+      }
       @media (max-width: 800px) {
         canvas {
           width: 600px;
         }
+        .navigasi {
+          width: 30%;
+          gap: 1.6rem;
+        }
       }
-      @media (max-width: 600px) {
+      @media (max-width: 786px) {
+        .navigasi {
+          width: 35%;
+          gap: 1.5rem;
+        }
+      }
+      @media (max-width: 667px) {
         canvas {
           width: 400px;
+        }
+        .navigasi {
+          width: 50%;
+          gap: 1.5rem;
+        }
+        .atas,
+        .bawah,
+        .kanan,
+        .kiri {
+          width: 1rem;
+          height: 1rem;
+          padding: 1rem;
+          font-size: 1.2rem;
+          font-weight: 500;
         }
       }
       @media (max-width: 400px) {
@@ -56,6 +117,20 @@
           font-size: 12px;
           margin-top: 10px;
         }
+        .navigasi {
+          width: 50%;
+          gap: 1rem;
+        }
+        .atas,
+        .bawah,
+        .kanan,
+        .kiri {
+          width: 0.7rem;
+          height: 0.7rem;
+          padding: 0.7rem;
+          font-size: 1rem;
+          font-weight: 500;
+        }
       }
     </style>
   </head>
@@ -66,6 +141,12 @@
     <div class="info">
       <div id="score">Skor: 0</div>
       <div id="health">Kesehatan: 100%</div>
+    </div>
+    <div class="navigasi">
+      <button class="kiri">⬅</button>
+      <button class="atas">⬆</button>
+      <button class="kanan">➡</button>
+      <button class="bawah">⬇</button>
     </div>
     <script src="pacman2.js"></script>
   </body>
