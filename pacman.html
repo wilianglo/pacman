@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PACMAN</title>
+    <style>
+      body {
+        background-image: url("pacman.jpg");
+      }
+      #myCanvas {
+        border: 1px solid black;
+        margin: 1rem auto;
+        background-color: whitesmoke;
+      }
+      .page {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #score,
+      #health {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+      .info {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 2rem;
+        align-items: center;
+        background-color: dodgerblue;
+        color: white;
+        padding: 0.8rem;
+        margin: 1rem auto;
+        width: 50%;
+        border-radius: 10px;
+      }
+      @media (max-width: 800px) {
+        canvas {
+          width: 600px;
+        }
+      }
+      @media (max-width: 600px) {
+        canvas {
+          width: 400px;
+        }
+      }
+      @media (max-width: 400px) {
+        canvas {
+          width: 300px;
+        }
+        #score,
+        #health {
+          font-size: 12px;
+          margin-top: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="page">
+      <canvas id="myCanvas" width="800" height="400"></canvas>
+    </section>
+    <div class="info">
+      <div id="score">Skor: 0</div>
+      <div id="health">Kesehatan: 100%</div>
+    </div>
+    <script src="pacman2.js"></script>
+  </body>
+</html>

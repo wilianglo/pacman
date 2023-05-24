@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      canvas {
+        border: 1px solid darkblue;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="leftBtn">Kiri</button>
+    <button id="rightBtn">Kanan</button>
+    <button id="upBtn">Atas</button>
+    <button id="downBtn">Bawah</button>
+    <canvas id="myCanvas" width="800" height="600"></canvas>
+    <script>
+      let canvas = document.getElementById("myCanvas");
+      let context = canvas.getContext("2d");
+      let x = 200; // Koordinat awal lingkaran
+      let y = 200;
+
+      function drawCircle() {
+        context.clearRect(0, 0, canvas.width, canvas.height); // Menghapus canvas sebelum menggambar ulang
+
+        // Menggambar lingkaran
+        context.beginPath();
+        context.arc(x, y, 50, 0, 2 * Math.PI);
+        context.fillStyle = "blue";
+        context.fill();
+        context.stroke();
+      }
+
+      function moveCircle(direction) {
+        // Mengubah posisi lingkaran berdasarkan arah yang diberikan
+        if (direction === "left") {
+          x -= 10;
+        } else if (direction === "right") {
+          x += 10;
+        } else if (direction === "up") {
+          y -= 10;
+        } else if (direction === "down") {
+          y += 10;
+        }
+
+        drawCircle(); // Menggambar lingkaran setelah perubahan posisi
+      }
+
+      // Event listener untuk tombol arah
+      document.getElementById("leftBtn").addEventListener("click", function () {
+        moveCircle("left");
+      });
+
+      document.getElementById("rightBtn").addEventListener("click", function () {
+        moveCircle("right");
+      });
+
+      document.getElementById("upBtn").addEventListener("click", function () {
+        moveCircle("up");
+      });
+
+      document.getElementById("downBtn").addEventListener("click", function () {
+        moveCircle("down");
+      });
+
+      // Event listener untuk tombol panah pada keyboard
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowLeft") {
+          moveCircle("left");
+        } else if (event.key === "ArrowRight") {
+          moveCircle("right");
+        } else if (event.key === "ArrowUp") {
+          moveCircle("up");
+        } else if (event.key === "ArrowDown") {
+          moveCircle("down");
+        }
+      });
+      // Menggambar lingkaran awal
+      drawCircle();
+    </script>
+  </body>
+</html>
